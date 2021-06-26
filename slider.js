@@ -10,10 +10,23 @@ var app = new Vue({
           "https://via.placeholder.com/300/00FF00/FFFFFF?text=Picture+3",
           "https://via.placeholder.com/300/000000/FFFFFF?text=Picture+4"
       ],
-      
+      timer:null
     },
         
-      methods: {     
+    mounted: function () {
+      this.startRotation();
+    },
+
+      methods: {    
+      startRotation:function(){
+        this.timer = setInterval(this.next, 3000); //3 secondi
+      },
+
+      stopRotation: function() {
+        clearTimeout(this.timer);
+        this.timer = null;
+      },
+
       next: function() {
       if(this.imgIndex === this.image.length-1){
         this.imgIndex = 0;

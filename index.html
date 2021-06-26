@@ -13,7 +13,7 @@
 <body>
     <div id="page">
         <button @click="prev">-</button>
-        <img v-for="img inside image" :src="image[imgIndex]" alt="Image slider">
+        <img v-for="img inside image" v-on:mouseover="stopRotation" v-on:mouseout="startRotation" :src="image[imgIndex]" alt="Image slider">
         <button @click="next">+</button>
     </div>
     <script src="slider.js"></script>
