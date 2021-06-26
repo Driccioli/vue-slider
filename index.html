@@ -11,10 +11,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-    <div id="page">
-        <button @click="prev">-</button>
+    <div class="d-flex flex-column justify-content-center align-items-center" id="page">
         <img v-for="img inside image" v-on:mouseover="stopRotation" v-on:mouseout="startRotation" :src="image[imgIndex]" alt="Image slider">
-        <button @click="next">+</button>
+        <div class="slider-ui">
+            <button class="dot" :class="isCurrentDot(0)" v-on:click="imgIndex = 0" v-on:click="isCurrentDot(0)"></button>
+            <button class="dot" :class="isCurrentDot(1)" v-on:click="imgIndex = 1" v-on:click="isCurrentDot(1)"></button>
+            <button class="dot" :class="isCurrentDot(2)" v-on:click="imgIndex = 2" v-on:click="isCurrentDot(2)"></button>
+            <button class="dot" :class="isCurrentDot(3)" v-on:click="imgIndex = 3" v-on:click="isCurrentDot(3)"></button>
+        </div>
     </div>
     <script src="slider.js"></script>
 </body>

@@ -1,5 +1,6 @@
 Vue.config.devtools = true;
 
+Array.dots = document.getElementsByClassName("dot");
 var app = new Vue({
     el: '#page',
     data: {
@@ -10,7 +11,7 @@ var app = new Vue({
           "https://via.placeholder.com/300/00FF00/FFFFFF?text=Picture+3",
           "https://via.placeholder.com/300/000000/FFFFFF?text=Picture+4"
       ],
-      timer:null
+      timer:null,
     },
         
     mounted: function () {
@@ -42,6 +43,14 @@ var app = new Vue({
           this.imgIndex -= 1;
         }
         
+        },
+        isCurrentDot: function(index){
+          if(index===this.imgIndex){
+            return "current";
+          } else{
+            return "";
+          }
         }
-      }
+      },
+      
      });
